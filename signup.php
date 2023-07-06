@@ -23,7 +23,8 @@
 
         <?php
         if(isset($_POST["submit"])) {
-            $fullname = $_POST["full_name"];
+            $firstname = $_POST["firstname"];
+            $lastname = $_POST["lastname"];
             $username = $_POST["username"];
             $email = $_POST["email"];
             $password = $_POST["password"];
@@ -31,7 +32,7 @@
             $pass_hash = password_hash($password, PASSWORD_DEFAULT);
             $errors = array();
 
-            if(empty($fullname) || empty($username) || empty($email) || empty($password) || empty($repeated_password)) {
+            if(empty($firstname) || empty($lastname) || empty($username) || empty($email) || empty($password) || empty($repeated_password)) {
                 array_push($errors, "all fields are required.");
             }
 
@@ -74,11 +75,11 @@
                     echo "<div class='alert alert-danger'>$error</div>";
                 }
             } else {
-                $sql = "INSERT INTO users (fullname, username, email, password) VALUES(?, ?, ?, ?)";
+                $sql = "INSERT INTO users (firstname, lastname, username, email, password) VALUES(?, ?, ?, ?, ?)";
                 $stmt = mysqli_stmt_init($conn);
                 $stmt_prepare = mysqli_stmt_prepare($stmt,$sql);
                 if($stmt_prepare) {
-                    mysqli_stmt_bind_param($stmt,"ssss",$fullname,$username,$email,$pass_hash);
+                    mysqli_stmt_bind_param($stmt,"sssss",$firstname,$lastname,$username,$email,$pass_hash);
                     mysqli_stmt_execute($stmt);
                     echo "<div class='alert alert-success'>you are registered successfully</div>";
                 } else {
@@ -89,8 +90,13 @@
         ?>
 
             <div class="form-group">
-                <label for="full_name">Full Name</label>
-                <input type="text" id="full_name" name="full_name" placeholder="Enter your name" value=<?php echo isset($_POST["full_name"]) ? $_POST["full_name"] : ""; ?> >
+                <label for="firstname">First Name</label>
+                <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" value=<?php echo isset($_POST["firstname"]) ? $_POST["firstname"] : ""; ?> >
+            </div>
+
+            <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" value=<?php echo isset($_POST["lastname"]) ? $_POST["lastname"] : ""; ?> >
             </div>
 
             <div class="form-group">
