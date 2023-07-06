@@ -8,6 +8,9 @@
         $sql = "SELECT * FROM users WHERE username = '$username'";
         $result = mysqli_query($conn, $sql);
         $user = mysqli_fetch_assoc($result);
+        echo "<pre>";
+        print_r($user) ;
+        echo "</pre>";
 
     }
 ?>
@@ -17,7 +20,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edits</title>
 </head>
 <body>
     <div class="container">
@@ -75,11 +78,21 @@
                     echo "<div class='alert alert-danger'>$error</div>";
                 }
             } else {
-                $sql = "UPDATE users
-                SET firstname = '$firstname', lastname = '$lastname', username = '$username', email = '$email', password = '$password'
-                WHERE username = '$username';";
+                $id = $user["id"];
+                $sql = "UPDATE 'users' SET id='$id',firstname='$firstname',lastname='$lastname',email='$email,email='$email',password='$pass_hash'";
                 $result = mysqli_query($conn, $sql);
-                echo "<div class='alert alert-success'>Your data has been updated successfully</div>";
+                if($result) {
+                    if(mysqli_num_rows($result)>0) {
+                        while($row = mysqli_fetch_array($result)) {
+                            $user["firstname"] = "$firstname";
+                            $user["lastname"] = "$lastname";
+                            $user["username"] = "$username";
+                            $user["email"] = "$email";
+                            $user["password"] = "$pass_hash";
+                        }
+                    }
+                    echo "<div class='alert alert-success'>Your data has been updated successfully</div>";
+                }
             }
         }
         ?>
