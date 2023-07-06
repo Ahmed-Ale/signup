@@ -75,10 +75,10 @@
                     echo "<div class='alert alert-danger'>$error</div>";
                 }
             } else {
-                $test = $_SESSION["user"];
                 $sql = "UPDATE users
                 SET firstname = '$firstname', lastname = '$lastname', username = '$username', email = '$email', password = '$password'
-                WHERE username = '$test';";
+                WHERE username = '$username';";
+                $result = mysqli_query($conn, $sql);
                 echo "<div class='alert alert-success'>Your data has been updated successfully</div>";
             }
         }
