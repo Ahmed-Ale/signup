@@ -79,7 +79,8 @@
                 }
             } else {
                 $id = $user["id"];
-                $sql = "UPDATE 'users' SET id='$id',firstname='$firstname',lastname='$lastname',email='$email,email='$email',password='$pass_hash'";
+                $sql = "UPDATE 'users' SET ,firstname='$firstname',lastname='$lastname',username='$username,email='$email',password='$pass_hash'
+                WHERE id='$id';";
                 $result = mysqli_query($conn, $sql);
                 if($result) {
                     if(mysqli_num_rows($result)>0) {
