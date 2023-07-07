@@ -4,7 +4,12 @@
         header("Location: sign-in.php");
     }
 
+    $conn = mysqli_connect("localhost", "root", "", "signup_signin");
     $username = $_SESSION["user"];
+    $sql = "SELECT * FROM users WHERE username = '$username'";
+    $result = mysqli_query($conn, $sql);
+    $user = mysqli_fetch_assoc($result);
+    $username = $user["username"];
 ?>
 
 <!DOCTYPE html>
