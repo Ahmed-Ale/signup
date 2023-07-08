@@ -15,7 +15,6 @@ if (!isset($_SESSION["user"])) {
     $sql = "SELECT * FROM users WHERE username = '$username'";
     $result = mysqli_query($conn, $sql);
     $user = mysqli_fetch_assoc($result);
-    print_r($user);
     if (isset($_POST["update"])) {
         $errors = array();
         if (empty($_POST["firstname"]) || empty($_POST["lastname"]) || empty($_POST["username"]) || empty($_POST["email"]) || empty($_POST["password"]) || empty($_POST["repeated_password"])) {
@@ -37,7 +36,6 @@ if (!isset($_SESSION["user"])) {
         if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/', $_POST["password"])) {
             array_push($errors, "Password must contain at least one special character, one uppercase letter, one lowercase letter, and one number.");
         }
-
         if ($_POST["username"] !== $user['username']) {
             $newusername = $_POST["username"];
             $sql = "SELECT * FROM users WHERE username = '$newusername'";
@@ -74,7 +72,7 @@ if (!isset($_SESSION["user"])) {
                 mysqli_stmt_bind_param($stmt, "ssssss", $firstname, $lastname, $username, $email, $pass_hash, $user['username']);
                 mysqli_stmt_execute($stmt);
                 $_SESSION["user"] = $username;
-                header("Location: Sucupdate.html");
+                header("Location: updated.html");
             } else {
                 echo "Error updating data: " . mysqli_error($conn);
             }
@@ -92,10 +90,12 @@ if (!isset($_SESSION["user"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <form action="edit.php" method="post">
+            <br>
             <label for="firstname">First Name</label>
             <input type="text" id="firstname" name="firstname" value="<?php echo $user['firstname']; ?>">
             <br>
@@ -118,6 +118,7 @@ if (!isset($_SESSION["user"])) {
 
             <label for="repeated_password">Repeated Password</label>
             <input type="password" id="repeated_password" name="repeated_password">
+            <br>
             <br>
 
             <input type="submit" value="Update" name="update">

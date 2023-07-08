@@ -19,12 +19,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
     <div class="container">
         <h1>Welcome, <?php echo $username; ?></h1>
         <h3>You have successfully signed in.</h3>
-        <h3><a href="profile.php">View your profile</a></h3>
+        <h3>View your <a href="profile.php">profile</a></h3>
         <h3><a href="signout.php">Sign Out</a></h3>
     </div>
 </body>

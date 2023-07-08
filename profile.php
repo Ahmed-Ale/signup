@@ -15,7 +15,6 @@ if (!isset($_SESSION["user"])) {
     $sql = "SELECT * FROM users WHERE username = '$username'";
     $result = mysqli_query($conn, $sql);
     $user = mysqli_fetch_assoc($result);
-    print_r($user);
     if (isset($_POST["submit"])) {
         if (password_verify($_POST["password"], $user["password"])) {
             header("Location: edit.php");
@@ -35,13 +34,18 @@ if (!isset($_SESSION["user"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     <div class="container">
         <form action="" method="post">
-            <label for="firstname">First Name</label>
-            <input type="text" id="firstname" name="firstname" value="<?php echo $user['firstname']; ?>" disabled>
-            <br>
+            <div>
+                <br>
+                <label for="firstname">First Name</label>
+                <input type="text" id="firstname" name="firstname" value="<?php echo $user['firstname']; ?>" disabled>
+                <br>
+            </div>
 
             <label for="lastname">Last Name</label>
             <input type="text" id="lastname" name="lastname" value="<?php echo $user['lastname']; ?>" disabled>
@@ -57,6 +61,7 @@ if (!isset($_SESSION["user"])) {
 
             <label for="password">Password</label>
             <input type="password" id="password" name="password">
+            <br>
             <br>
 
             <input type="submit" value="Submit" name="submit">
