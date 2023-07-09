@@ -23,6 +23,8 @@
 
         <?php
         if(isset($_POST["submit"])) {
+            require_once("database.php");
+
             $firstname = $_POST["firstname"];
             $lastname = $_POST["lastname"];
             $username = $_POST["username"];
@@ -54,7 +56,6 @@
                 , one lowercase letter and one number.");
             }
 
-            require_once("database.php");
             $sql = "SELECT * from users WHERE username = '$username'";
             $result  = mysqli_query($conn,$sql);
             $rowcount = mysqli_num_rows($result);
@@ -62,7 +63,6 @@
                 array_push($errors,"Username already exists.");
             }
 
-            require_once("database.php");
             $sql = "SELECT * from users WHERE email = '$email'";
             $result  = mysqli_query($conn,$sql);
             $rowcount = mysqli_num_rows($result);
