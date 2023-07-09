@@ -90,35 +90,41 @@ if (!isset($_SESSION["user"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: left;
+        }
+
+        .container label, .container input {
+            margin-bottom: 10px;
+            width: 400px; /* Adjust the width as desired */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <form action="edit.php" method="post">
-            <br>
             <label for="firstname">First Name</label>
             <input type="text" id="firstname" name="firstname" value="<?php echo $user['firstname']; ?>">
-            <br>
 
             <label for="lastname">Last Name</label>
             <input type="text" id="lastname" name="lastname" value="<?php echo $user['lastname']; ?>">
-            <br>
 
             <label for="username">Username</label>
             <input type="text" id="username" name="username" value="<?php echo $user['username']; ?>">
-            <br>
 
             <label for="email">Email</label>
             <input type="text" id="email" name="email" value="<?php echo $user['email']; ?>">
-            <br>
 
             <label for="password">Password</label>
             <input type="password" id="password" name="password">
-            <br>
 
             <label for="repeated_password">Repeated Password</label>
             <input type="password" id="repeated_password" name="repeated_password">
-            <br>
             <br>
 
             <input type="submit" value="Update" name="update">

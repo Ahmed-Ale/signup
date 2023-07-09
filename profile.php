@@ -35,17 +35,15 @@ if (!isset($_SESSION["user"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="style.css">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
 <body>
     <div class="container">
         <form action="" method="post">
-            <div>
-                <br>
-                <label for="firstname">First Name</label>
-                <input type="text" id="firstname" name="firstname" value="<?php echo $user['firstname']; ?>" disabled>
-                <br>
-            </div>
+            <br>
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname" name="firstname" value="<?php echo $user['firstname']; ?>" disabled>
+            <br>
 
             <label for="lastname">Last Name</label>
             <input type="text" id="lastname" name="lastname" value="<?php echo $user['lastname']; ?>" disabled>
