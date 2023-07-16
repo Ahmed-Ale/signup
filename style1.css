@@ -1,0 +1,102 @@
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        p {
+            text-align: center;
+            color: #777;
+            margin-bottom: 20px;
+        }
+        
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #ccc;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        .form-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+        
+        p.member {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        p.member a {
+            color: #333;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        p.member a:hover {
+            text-decoration: underline;
+        }
+        
+        .alert {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .alert-danger {
+            background-color: #ffdddd;
+            color: #cc0000;
+        }
+        
+        .alert-success {
+            background-color: #ddffdd;
+            color: #00aa00;
+        }

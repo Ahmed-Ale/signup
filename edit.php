@@ -90,8 +90,8 @@ if (!isset($_SESSION["user"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-    <style>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"> -->
+    <!-- <style>
         .container {
             display: flex;
             flex-direction: column;
@@ -102,8 +102,10 @@ if (!isset($_SESSION["user"])) {
         .container label, .container input {
             margin-bottom: 10px;
             width: 400px; /* Adjust the width as desired */
-        }
+        } -->
     </style>
+    <link rel="stylesheet" href="style1.css">
+
 </head>
 <body>
     <div class="container">
@@ -125,6 +127,7 @@ if (!isset($_SESSION["user"])) {
 
             <label for="repeated_password">Repeated Password</label>
             <input type="password" id="repeated_password" name="repeated_password">
+            <br>
             <br>
 
             <input type="submit" value="Update" name="update">
