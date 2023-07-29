@@ -20,9 +20,9 @@
 </head>
 <body>
     <div class="container">
-        <form action="sign-in.php" method="post">
-            <h1>Sign In</h1>
-            <p>Please fill in this form to sign in to your account.</p>
+        <form action="login.php" method="post">
+            <h1>Login</h1>
+            <p>Please fill in this form to login to your account.</p>
             <hr>
             <?php
                 if (isset($_POST["submit"])) {
@@ -70,7 +70,7 @@
             </div>
 
             <div class="form-btn">
-                <input type="submit" name="submit" value="Sign In">
+                <input type="submit" name="submit" value="Login">
             </div>
 
             <p>Don't have an account? <a href="signup.php">Sign up here</a></p>

@@ -125,7 +125,7 @@
             <div class="form-btn">
                 <input type="submit" name="submit" value="Sign up">
             </div>
-            <p>Already a member?</p> <a href="sign-in.php">Sign in here</a>
+            <p>Already a member?</p> <a href="login.php">Login here</a>
         </form>
     </div>
 </body>

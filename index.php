@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(!isset($_SESSION["user"])) {
-        header("Location: sign-in.php");
+        header("Location: login.php");
     }
 
     $conn = mysqli_connect("localhost", "root", "", "signup_signin");
@@ -26,7 +26,7 @@
 <body>
     <div class="container">
         <h1>Welcome, <?php echo $username; ?></h1>
-        <h3>You have successfully signed in.</h3>
+        <h3>You have successfully logged in.</h3>
         <h3>View your <a href="profile.php">profile</a></h3>
         <h3><a href="signout.php">Sign Out</a></h3>
     </div>
